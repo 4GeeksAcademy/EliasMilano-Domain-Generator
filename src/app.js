@@ -15,21 +15,23 @@ window.onload = function() {
     "fantastic",
     "supercalifragilisticoexpialidoso"
   ];
-  let noun = ["costco", "bauru", "spirit", "Lazarus", "brazuca", "dolphin"];
-  let domainName = [];
+  let noun = ["bauru", "spirit", "Lazarus", "brazuca", "dolphin"];
+  let domainNames = [];
   let l = 0;
 
   for (let i in pronoun) {
     for (let j in adj) {
       for (let k in noun) {
-        domainName[l] = pronoun[i] + adj[j] + noun[k] + ".com";
+        domainNames[l] = pronoun[i] + adj[j] + noun[k] + ".com";
         l++;
       }
     }
   }
 
-  for (let m in domainName) {
-    document.getElementById("content").innerHTML = domainName[m];
-    console.log(domainName[m]);
-  }
+  let domainNamesHtml = domainNames.map(name => {
+    return '<li class="list-group-item alert-success mt-1">' + name + "</li>";
+  });
+
+  let domainNamesItem = document.getElementById("content");
+  domainNamesItem.innerHTML = domainNamesHtml.join(" ");
 };
