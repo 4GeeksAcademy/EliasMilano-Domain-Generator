@@ -2,9 +2,6 @@
 import "bootstrap";
 import "./style.css";
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
 window.onload = function() {
   //write your code here
   let pronoun = ["the", "our", "your"];
@@ -31,7 +28,6 @@ window.onload = function() {
   }
 
   let domainNamesHtml = domainNames.map(name => {
-    let html;
     if (
       name.includes("bau.ru") ||
       name.includes("spir.it") ||
@@ -39,14 +35,14 @@ window.onload = function() {
       name.includes("brazu.ca") ||
       name.includes("dolph.in")
     ) {
-      html =
+      return (
         '<li class="list-group-item list-group-item-success mt-1">' +
         name +
-        "</li>";
-    } else {
-      html = '<li class="list-group-item mt-1">' + name + "</li>";
+        "</li>"
+      );
     }
-    return html;
+
+    return '<li class="list-group-item mt-1">' + name + "</li>";
   });
 
   let domainNamesItem = document.getElementById("content");
